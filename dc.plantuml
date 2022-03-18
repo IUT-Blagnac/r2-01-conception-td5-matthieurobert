@@ -1,0 +1,39 @@
+@startuml
+
+class Entreprise{
+    nom
+    adresse
+    numTel
+}
+
+class Artisan {
+    salaireHoraire
+    numTel
+    nomA
+    prenomA
+    getSalaireHoraire()
+}
+
+class Chantier {
+    dateDebut
+    dateFin
+    adresse
+    getAdresse()
+}
+
+class Affecter {
+    nbHeure
+    getPayeArtisan()
+}
+
+class Spécialite {
+    nom
+}
+
+Entreprise "1" -- "0..*" Artisan
+Entreprise "1" -- "0..*" Chantier
+Artisan "1..*" -- "0..*" Chantier
+(Artisan, Chantier) .. Affecter
+Artisan -- "1" Spécialite
+
+@enduml

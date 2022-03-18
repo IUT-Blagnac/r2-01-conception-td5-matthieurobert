@@ -1,0 +1,27 @@
+@startuml
+
+usecase c as "Est affecté à un chantié"
+usecase e as "Emploie"
+usecase a as "Gère ses chantiers"
+usecase b as "Gère ses artisan"
+usecase p as "Calculer la paie"
+
+actor Entreprise 
+' actor Employé
+actor Artisan
+
+'Pour aligner les 2 acteurs :
+e -[hidden]-> b
+b -[hidden]-> p
+p -[hidden]-> a
+
+Entreprise -> e
+Artisan -> c
+e -> Artisan
+Entreprise -> a
+Entreprise -> b
+Entreprise -> p
+b -> Artisan
+p -> Artisan
+
+@enduml
